@@ -6,12 +6,19 @@ const server = net.createServer((client) => {
     client.id = Date.now() + seed++;
     client.setEncoding('utf8');
 
+
     client.on('data', (data) => {
-        console.log(data);
-        client.write('\r\nHello!\r\nRegards,\r\nServer\r\n');
+        if (data === 'QA') {
+            client.write('ACK');
+        }
+        else{
+            client.write('DEC');
+        }
     });
 
-    client.on('end', () => console.log('Client disconnected'));
+    client.on('end', () => {
+        console.log('Client disconnected')
+    });
 });
 
 server.listen(port, () => {

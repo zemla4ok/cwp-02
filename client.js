@@ -5,16 +5,18 @@ const client = new net.Socket();
 
 client.setEncoding('utf8');
 
-client.connect(port, function() {
+client.connect(port, function () {
     console.log('Connected');
-    client.write('QA\n');
+    client.write('QA');
 });
 
-client.on('data', function(data) {
+client.on('data', function (data) {
     console.log(data);
-    client.destroy();
+    if (data === 'DEC') {
+        client.destroy();
+    }
 });
 
-client.on('close', function() {
+client.on('close', function () {
     console.log('Connection closed');
 });
