@@ -1,13 +1,23 @@
 const net = require('net');
+const fs = require('fs');
+const shuffle = require('shuffle-array');
 const port = 8124;
-
 const client = new net.Socket();
 
-client.setEncoding('utf8');
-
+let arr;
 client.connect(port, function () {
     console.log('Connected');
-    client.write('ACK');
+    client.write('QA');
+    fs.readFile('qa.json', (err, text) => {
+        if (!err) {
+            arr = JSON.parse(text);
+            shuffle(arr);
+            console.log(arr);
+        }
+        else {
+            console.log(err);
+        }
+    })
 });
 
 client.on('data', function (data) {
@@ -16,6 +26,10 @@ client.on('data', function (data) {
         client.destroy();
     }
 });
+
+for (let i = 0; i < arr.length; i++) {
+    
+}
 
 client.on('close', function () {
     console.log('Connection closed');
