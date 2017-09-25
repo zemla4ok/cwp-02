@@ -7,7 +7,7 @@ client.setEncoding('utf8');
 
 client.connect(port, function () {
     console.log('Connected');
-    client.write('QA');
+    client.write('ACK');
 });
 
 client.on('data', function (data) {
