@@ -10,7 +10,7 @@
     "badAns": "False"
   },
   {
-    "question": "Are you use callbacks in callbacks?",
+    "question": "Do you use callbacks in callbacks?",
     "goodAns": "True",
     "badAns": "False"
   },

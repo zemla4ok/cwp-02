@@ -2,12 +2,11 @@ const net = require('net');
 const fs = require('fs');
 const port = 8124;
 let seed = 0;
-const logger = fs.createWriteStream('client_id.log');
+const logger = fs.createWriteStream('client_id.txt');
 const server = net.createServer((client) => {
-    console.log('Client connected');
-    client.id = Date.now() + seed++;
+    logger.write('client ' + client.id + ' disconnected');
+    client.id = seed++;
     client.setEncoding('utf8');
-
 
     client.on('data', (data) => {
         if (data === 'QA') {
@@ -15,15 +14,14 @@ const server = net.createServer((client) => {
         }
         else{
             //client.write('DEC');
-            //console.log(data);
-            logger.write(client.id + ' data: ' + data );
+            logger.write(client.id + ' data: ' + data + '\n');
             let ans = getRandom();
             client.write(ans);
         }
     });
 
     client.on('end', () => {
-        console.log('Client disconnected');
+        logger.write('client ' + client.id + ' disconnected');
     });
 });
 
