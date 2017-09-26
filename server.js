@@ -4,7 +4,7 @@ const port = 8124;
 let seed = 0;
 const logger = fs.createWriteStream('client_id.txt');
 const server = net.createServer((client) => {
-    logger.write('client ' + client.id + ' disconnected');
+    logger.write('client ' + client.id + ' disconnected\n');
     client.id = seed++;
     client.setEncoding('utf8');
 
@@ -14,14 +14,15 @@ const server = net.createServer((client) => {
         }
         else{
             //client.write('DEC');
-            logger.write(client.id + ' data: ' + data + '\n');
+            logger.write(client.id + ' data: ' + data);
             let ans = getRandom();
+            logger.write('; answer: ' + ans + '\n');
             client.write(ans);
         }
     });
 
     client.on('end', () => {
-        logger.write('client ' + client.id + ' disconnected');
+        logger.write('client ' + client.id + ' disconnected\n');
     });
 });
 
