@@ -2,4 +2,28 @@ client undefined disconnected0 data: Are you use callbacks in callbacks?
 0 data: 2+2
 0 data: lol kek...
 0 data: Is Josh Snow a King of the North?
-client 0 disconnected
+client 0 disconnectedclient undefined disconnected1 data: 2+2
+1 data: lol kek...
+1 data: Do you use callbacks in callbacks?
+1 data: Is Josh Snow a King of the North?
+client 1 disconnectedclient undefined disconnected2 data: 2+2
+2 data: lol kek...
+2 data: Do you use callbacks in callbacks?
+2 data: Is Josh Snow a King of the North?
+client 2 disconnectedclient undefined disconnectedclient undefined disconnected3 data: 2+2
+3 data: Do you use callbacks in callbacks?
+3 data: Is Josh Snow a King of the North?
+3 data: lol kek...
+client 3 disconnected4 data: Do you use callbacks in callbacks?
+4 data: 2+2
+4 data: lol kek...
+4 data: Is Josh Snow a King of the North?
+client 4 disconnectedclient undefined disconnected5 data: Do you use callbacks in callbacks?
+client undefined disconnected5 data: 2+2
+5 data: Is Josh Snow a King of the North?
+5 data: lol kek...
+client 5 disconnected6 data: 2+2
+6 data: lol kek...
+6 data: Do you use callbacks in callbacks?
+6 data: Is Josh Snow a King of the North?
+client 6 disconnected
